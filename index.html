@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>When & Where</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="kicker">When & Where</p>
+        <h1>Plan hangouts with your people.</h1>
+        <p>
+          Drop your availability, preferred place, and a quick note so friends can find an easy
+          time to meet up this week.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Add your availability</h2>
+        <form id="availability-form" class="availability-form">
+          <div class="grid">
+            <label>
+              Name
+              <input type="text" name="name" placeholder="Alex" required />
+            </label>
+            <label>
+              Day
+              <select name="day" required>
+                <option value="">Choose a day</option>
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+                <option>Sunday</option>
+              </select>
+            </label>
+            <label>
+              Time
+              <input type="time" name="time" required />
+            </label>
+            <label>
+              Place
+              <input type="text" name="place" placeholder="Cedar Coffee" required />
+            </label>
+          </div>
+          <label>
+            Notes (optional)
+            <textarea
+              name="notes"
+              rows="3"
+              placeholder="Down for board games after dinner"
+            ></textarea>
+          </label>
+          <div class="actions">
+            <button type="submit">Save availability</button>
+            <button type="button" id="share-plan" class="secondary">Copy share link</button>
+            <button type="button" id="clear-all" class="ghost">Clear all</button>
+          </div>
+          <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>This week's plan</h2>
+          <p id="entry-count">No plans yet</p>
+        </div>
+        <ul id="availability-list" class="availability-list"></ul>
+      </section>
+    </main>
+
+    <template id="entry-template">
+      <li class="availability-item">
+        <div>
+          <p class="person"></p>
+          <p class="meta"></p>
+          <p class="note"></p>
+        </div>
+        <button class="remove" type="button" aria-label="Remove entry">×</button>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
